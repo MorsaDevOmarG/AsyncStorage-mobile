@@ -17,12 +17,13 @@ import Async from './src/components/Async';
 const App = () => {
   useEffect(() => {
     const almacenarAS = async () => {
-      const nombre = 'async storage';
+      const nombre = 'storage';
 
       await AsyncStorage.setItem('pruebas_as', nombre);
+      console.log('Almacenando');
     };
 
-    console.log('Almacenando');
+    almacenarAS();
   }, []);
 
   return (

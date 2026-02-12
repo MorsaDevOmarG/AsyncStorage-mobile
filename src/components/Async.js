@@ -16,9 +16,13 @@ import {
 export default function Async() {
   useEffect(() => {
     const obtenerAS = async () => {
-      const valor = await AsyncStorage.getItem('pruebas_as');
+      try {
+        const valor = await AsyncStorage.getItem('pruebas_as');
 
-      console.log(valor);
+        console.log(valor);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     obtenerAS();
