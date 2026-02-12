@@ -17,9 +17,11 @@ import Async from './src/components/Async';
 const App = () => {
   useEffect(() => {
     const almacenarAS = async () => {
-      const nombre = 'storage';
+      // const nombre = 'storage';
+      const nombre = [1, 2, 3];
 
-      await AsyncStorage.setItem('pruebas_as', nombre);
+      // await AsyncStorage.setItem('pruebas_as', nombre);
+      await AsyncStorage.setItem('pruebas_as', JSON.stringify(nombre));
       console.log('Almacenando');
     };
 
