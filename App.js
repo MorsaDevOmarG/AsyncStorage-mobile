@@ -12,11 +12,12 @@ import {
   View,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Async from './src/components/Async';
 
 const App = () => {
   useEffect(() => {
     const almacenarAS = async () => {
-      const nombre = '';
+      const nombre = 'async storage';
 
       await AsyncStorage.setItem('pruebas_as', nombre);
     };
@@ -35,6 +36,7 @@ const App = () => {
           <Text>Eliminar Nombre &times;</Text>
         </TouchableHighlight>
       </View>
+      <Async />
     </>
   );
 };
