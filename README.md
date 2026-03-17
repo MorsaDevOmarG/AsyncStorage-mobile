@@ -13,6 +13,11 @@
    - Similar a LocalStorage.
    - En iOS puede almacenar los valores en diccionarios o en archivos, mientras que en Android, utilizará SQLite o RocksDB.
    - _Async Intermedio_
+     - **MÉTODOS**
+       - _.setItem_ - Almacena un elemento.
+       - _.getItem_ - Obtiene un elemento.
+       - _.removeItem_ - Elimina un elemento.
+       - _.clear_ - Elimina todo el contenido almacenado.
 
 ### Métodos
 
