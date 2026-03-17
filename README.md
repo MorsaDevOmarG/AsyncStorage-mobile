@@ -12,6 +12,7 @@
    - Sistema de almacenamiento de tipo llave-valor (key-value) que es global a la App.
    - Similar a LocalStorage.
    - En iOS puede almacenar los valores en diccionarios o en archivos, mientras que en Android, utilizará SQLite o RocksDB.
+   - _Async Intermedio_
 
 ### Métodos
 
