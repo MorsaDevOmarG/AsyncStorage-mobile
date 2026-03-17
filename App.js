@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Button,
   SafeAreaView,
@@ -14,12 +14,28 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const App = () => {
+  const [intputText, guardarInputText] = useState('');
+
+  const guardarDatos = async () => {
+    console.log('Guardando datos', intputText);
+
+    try {
+      await AsyncStorage.setItem('nombre', intputText);
+    } catch (error) {
+      console.log('Error al guardar los datos', error);
+    }
+  };
+
   return (
     <>
       <View style={styles.contenedor}>
-        <TextInput style={styles.input} />
+        <TextInput
+          placeholder="Ingrese su nombre"
+          style={styles.input}
+          onChangeText={texto => guardarInputText(texto)}
+        />
 
-        <Button title="Guardar" color="#333" />
+        <Button title="Guardar" color="#333" onPress={guardarDatos} />
 
         <TouchableHighlight style={styles.btnEliminar}>
           <Text style={styles.textoEliminar}>Eliminar Nombre &times;</Text>
