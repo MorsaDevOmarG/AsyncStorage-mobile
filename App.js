@@ -15,6 +15,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const App = () => {
   const [intputText, guardarInputText] = useState('');
+  const [nombreStorage, guardarNombreStorage] = useState('');
+
+  useEffect(() => {
+    obtenerDatosStorage();
+  }, []);
 
   const guardarDatos = async () => {
     console.log('Guardando datos', intputText);
@@ -26,9 +31,22 @@ const App = () => {
     }
   };
 
+  const obtenerDatosStorage = async () => {
+    try {
+      const nombre = await AsyncStorage.getItem('nombre');
+      console.log('Datos obtenidos', nombre);
+
+      guardarNombreStorage(nombre);
+    } catch (error) {
+      console.log('Error al obtener los datos', error);
+    }
+  };
+
   return (
     <>
       <View style={styles.contenedor}>
+        <Text>Hola {nombreStorage}</Text>
+
         <TextInput
           placeholder="Ingrese su nombre"
           style={styles.input}
