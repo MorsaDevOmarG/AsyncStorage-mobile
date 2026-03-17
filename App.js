@@ -26,6 +26,8 @@ const App = () => {
 
     try {
       await AsyncStorage.setItem('nombre', intputText);
+
+      guardarNombreStorage(intputText);
     } catch (error) {
       console.log('Error al guardar los datos', error);
     }
@@ -42,10 +44,19 @@ const App = () => {
     }
   };
 
+  const eliminarDatos = async () => {
+    try {
+      await AsyncStorage.removeItem('nombre');
+      guardarNombreStorage('');
+    } catch (error) {
+      console.log('Error al eliminar los datos', error);
+    }
+  };
+
   return (
     <>
       <View style={styles.contenedor}>
-        <Text>Hola {nombreStorage}</Text>
+        {nombreStorage ? <Text>Hola {nombreStorage}</Text> : null}
 
         <TextInput
           placeholder="Ingrese su nombre"
@@ -55,9 +66,13 @@ const App = () => {
 
         <Button title="Guardar" color="#333" onPress={guardarDatos} />
 
-        <TouchableHighlight style={styles.btnEliminar}>
-          <Text style={styles.textoEliminar}>Eliminar Nombre &times;</Text>
-        </TouchableHighlight>
+        {nombreStorage ? (
+          <TouchableHighlight
+            style={styles.btnEliminar}
+            onPress={() => eliminarDatos()}>
+            <Text style={styles.textoEliminar}>Eliminar Nombre &times;</Text>
+          </TouchableHighlight>
+        ) : null}
       </View>
     </>
   );

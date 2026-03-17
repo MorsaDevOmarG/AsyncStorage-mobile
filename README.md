@@ -1,4 +1,4 @@
-# Proyecto Async Storage
+# Proyecto Async Storage Intermediate
 
 - Creación del proyecto:
   - `npx react-native init miProyecto --version 0.70`
